@@ -1,0 +1,15 @@
+1. Running the 'testScript' script will compile the program, run it with scripted commands (testIn file), and display the difference of expected (masterOut file) and produced output (testOut file).  The masterOut file was written by hand.
+
+2. To run in an interactive mode, either run the script first or compile with 'javac *.java', then run with 'java VendingMachine' commands.
+
+3.  Payments should be entered as numeric values.  For example 1 or .75.
+
+4.  Item codes are "a0 - b9".  Items have inital stock of five. For simplicity items have the same name as thier code.
+
+5. "Cancel" will end a transaction and return payment if applicable.  
+
+6. "End" will stop execution.
+
+7. "Display" will display the current item stock.
+
+8. While the prompt (or lack of prompt) may make the application difficult to use, it should be robust enough to handle any input at any time with out crashing the program.  

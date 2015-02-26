@@ -1,0 +1,7 @@
+#! /bin/bash
+clear
+rm *.class compileOut.txt testOut
+javac *.java &> compileOut.txt
+java VendingMachine testIn &> testOut
+diff masterOut testOut &> testDiff
+cat testDiff

@@ -1,0 +1,75 @@
+Accept Payment:
+
+	Preconditons:  
+		A. Systen is not in the VendChange State.
+		B. System is not in the VendItem State.
+		C. Negative payment amounts not allowed.
+
+	Postconditions:
+		A. Funds are added to the system state.
+
+	User Steps:
+		1. Insert payment into the vending machine.
+	System Steps:  
+		1. Add amount to current state.
+
+ItemSelect:
+
+	Preconditions:
+		A. Payment has been entered.
+	
+	Postconditions:
+		A. System enters VendChange State on valid item code.
+		B. System remains in ItemSelect state on invalid code.
+		C. System remains in ItemSelect state on addition payment inserted.
+		D. System enters VendChange State on cancel command.
+		E. System shuts down on end command.
+		
+
+	User Steps: 
+		1a. User enters a valid item code.
+		1b. User enters "cancel".
+		1c. User (admin) enters "end".
+		1d. User enters invalid code.
+
+	System Steps:
+		1a&b. Systems enters vending state.
+		1c. System shuts down.
+		1d. System stays in ItemSelect State.
+
+VendChange:
+	
+	Preconditions:
+		A. A valid code was entered.
+		B. Transaction cancelled.
+		
+		
+	Postconditions:
+		A. Return to AccpetPayment if payment is less than item price.
+		B. Return to ItemSelect if item is out of stock.
+		C. Return to AcceptPayment State on transaction canceled.
+		D. System enters VendItem state if payment is greater than item price and item selected is in stock.
+
+	User Steps:
+		1. (wait)
+		2. User collects returned change/payment.
+	
+	System Steps:
+		1. System checks item stock and price.
+		2. System returns change/payment.
+
+VendItem:
+	
+	Preconditon:
+		A.  Payment entered is greater than item selected, and item is in stock.
+	Postcondition:
+		A. Item is dispensed, and system returns to AcceptPayment state.
+
+	User Steps:
+		1. (wait)
+		2. User collects item.
+	
+	System Steps
+		1. System reduces item stock.
+		2. System dispenses item.
+		

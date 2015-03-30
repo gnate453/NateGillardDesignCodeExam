@@ -19,6 +19,10 @@ public class VendChangeState extends TransactionState {
 			return VendingMachine.cancel();
 		}
 		else if (this.itemCode.equalsIgnoreCase("Z9")) {
+			if (this.amountPaid > 0) {
+				String out = changeFormat.format(this.amountPaid);
+				System.out.println(out + " tendered returned.");
+			}
 			return VendingMachine.end();
 		}
 		else {

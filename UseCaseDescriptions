@@ -19,11 +19,11 @@ ItemSelect:
 		A. Payment has been entered.
 	
 	Postconditions:
-		A. System enters VendChange State on valid item code.
+		A. System enters Vending state on valid item code.
 		B. System remains in ItemSelect state on invalid code.
-		C. System remains in ItemSelect state on addition payment inserted.
-		D. System enters VendChange State on cancel command.
-		E. System shuts down on end command.
+		C. System returns to  AcceptPayment state on addition payment inserted.
+		D. System enters Vending state on cancel command.
+		E. System enters Vending state on end command.
 		
 
 	User Steps: 
@@ -33,8 +33,7 @@ ItemSelect:
 		1d. User enters invalid code.
 
 	System Steps:
-		1a&b. Systems enters vending state.
-		1c. System shuts down.
+		1a,b,&c. Systems enters vending state.
 		1d. System stays in ItemSelect State.
 
 VendChange:
